@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\usepackage{listings}
+
+\begin{document}
+
+\title{CS 260}
+\author{Daniel Lopez}
+\maketitle
+
+\date{29 June 2017}
+
+\section{This is a section header.}
+
+\subsection{This is a subsection header.}
+
+\begin{itemize}
+	\item First item.
+	\item Second item.
+	\item Third item.
+	\item Fifth item.
+	\item Fourth item.
+\end{itemize}
+
+\begin{enumerate}
+	\item First item.
+	\item Second item.
+	\item Third item.
+	\item Fourth item.
+	\item Fifth item.
+\end{enumerate}
+
+This is a paragraph of text. There isn't much \textit{useful} information here, just some italics. But, it is a paragraph nonetheless.\par
+Here is another paragraph. This one actually has some useful information. Or...\textbf{does} it?\par
+
+At long last, here is a sentence with something useful, as shown by the equation $a^2 = b^2 + c^2$, which is the Pythagorean Theorem.\par
+
+\begin{equation}
+e^{\pi i} + 1 = 0
+\end{equation}
+
+\begin{align}
+	2+2=&4
+	||
+	5x+3=&2y
+	||
+	x+y+z=325
+\end{align}
+
+\begin{lstlisting}
+x = 0
+arr = [1,2,3,4,5]
+for x in len(arr):
+	x = x + 1
+	arr[x] = 0
+print("array values set to 0")
+\end{lstlisting}
+
+\begin{algorithm}[H]
+	\KwData{One Integer as input}
+	A=1,2,3,4,5\;
+	\For{i=2,i $<$ 10; i++}
+	{
+		A[i]=i*2
+	}
+\end{algorithm}
+
+\end{document}

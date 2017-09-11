@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{tabu}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{CS 260: Homework 8}
+\author{Daniel Lopez}
+\maketitle
+
+\date{25 August 2017}
+
+\section{1}
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | }
+    \hline
+    0 & 1 & 2 & 3 & 4 & 5 & 6\\
+    \hline
+     &  &  &  &  &  &  \\
+    \hline 
+\end{tabu} \newline
+Hash table contents are added h(i) = i\%7 for each entry 1, 8, 27, 64, 125, 216, 343.
+1\%7 = 1, so 1 is placed into cell 1.
+8\%7 = 1, but since cell 1 is already filled, 8 is placed in slot 2.
+27\%7 = 6, so 27 is placed into cell 6.
+64\%7 = 1, but since cell 1 is already filled, 64 is placed in slot 3.
+125\%7 = 6, but since cell 6 is already filled, 125 is placed in slot 0.
+216\%7 = 6, but since cell 6 is already filled, 216 is placed in slot 4.
+343\%7 = 0, but since 0 is filled, 343 is placed in the last empty slot: slot 5. \newline
+
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | }
+    \hline
+    0 & 1 & 2 & 3 & 4 & 5 & 6\\
+    \hline
+    125 & 1 & 8 & 64 & 216 & 343 & 27 \\ 
+    \hline
+\end{tabu} \newline
+With closed hashing: \newline
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | X[c] | }
+	\hline
+	0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+	\hline
+	343 & 63 &  &  &  &  & 216 \\
+	\hline
+\end{tabu}
+\section{2}
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | X[c] | }
+	\hline
+	0 & 1 & 2 & 3 & 4 \\
+	\hline
+	  &   &   &   &   \\
+	\hline
+\end{tabu} \newline
+Insert 23, 23\%5=3. 3 is empty, so 3: 23
+Insert 48, 48\%5=3. 3 is filled already, so put it in the next cell for 4: 48.
+Insert 35, 35\%5=0. 0 is empty, so 0: 35
+Insert 4, 4\%5=4. 4 is filled, so next empty cell is 1 for 1: 4.
+10 logically goes into 2 since it's the last empty cell, so 10\%5=0, shifted over so 2: 10.
+Thus the table becomes: \newline
+
+\begin{tabu} to 0.8\textwidth { | X[c] | X[c] | X[c] | X[c] | X[c] | }
+    \hline
+    0 & 1 & 2 & 3 & 4 \\
+    \hline
+    35 & 4 & 10 & 23 & 48 \\
+    \hline
+\end{tabu}
+
+\section{3}
+\par a. Problem with hash keys being character strings. That is, function $h1(x)$ computed the length of a string:
+There would be multiple collisions with similar-length words, such as h1("The"), h1("Big"), and h1("You") which are all of length 3. Thus, these three would all collide with one another.
+\par b. Problem with h2(x) computing a random number 0 $>=$ r $<$ B where B is the number of buckets:
+You would have to search all of the buckets for the same string because of different hashes. For example, the same input in the same function might not even be guaranteed to return the same output, meaning the buckets mean little if the output is not consistent.
+
+\end{document}

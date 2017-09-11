@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\begin{document}
+
+
+\title{CS 260: Homework 3}
+\author{Daniel Lopez}
+\maketitle
+
+\date{16 July 2017}
+
+\section{1}
+\subsection{a: Bubble sort}
+Note: bold denotes bubble. \newline
+0: [1 \textbf{7} 3 2 0 5 0 8]\newline
+1: [1 3 \textbf{7} 2 0 5 0 8]\newline
+2: [1 3 2 \textbf{7} 0 5 0 8]\newline
+3: [1 3 2 0 \textbf{7} 5 0 8]\newline
+4: [1 3 2 0 5 \textbf{7} 0 8]\newline
+5: [1 3 2 0 5 0 \textbf{7} 8]\newline
+6: [1 2 \textbf{3} 0 5 0 7 8]\newline
+7: [1 2 0 \textbf{3} 5 0 7 8]\newline
+8: [1 2 0 3 0 \textbf{5} 7 8]\newline
+9: [1 0 \textbf{2} 3 0 5 7 8]\newline
+10: [1 0 2 0 \textbf{3} 5 7 8]\newline
+11: [0 \textbf{1} 2 0 3 5 7 8]\newline
+12: [0 1 0 \textbf{2} 3 5 7 8]\newline
+13: [0 0 \textbf{1} 2 3 5 7 8]\newline
+Final sorted array:\newline
+\textbf{[0 0 1 2 3 5 7 8]}
+
+\subsection{b: Insertion sort}
+Using insertionsort:\newline
+0: [1 7 3 2 0 5 0 8] \newline
+1: [1 3 7 2 0 5 0 8] \newline
+2: [1 2 3 7 0 5 0 8] \newline
+3: [0 1 2 3 7 5 0 8] \newline
+4: [0 1 2 3 5 7 0 8] \newline
+5: [0 0 1 2 3 5 7 8] \newline
+\section{2}
+Using quicksort:\newline
+[22 36 6 79 26 45 75 13 31 62 27 66 33 16] \newline
+[6 13 16 36 79 26 45 75 31 62 27 66 33 22] \newline
+[6 13 16 22 79 26 45 75 31 62 27 66 33 36] \newline
+[6 13 16 22 26 31 27 33 36 62 45 66 75 79] \newline
+[6 13 16 22 26 27 31 33 36 62 45 66 75 79] \newline
+\textbf{[6 13 16 22 26 27 31 33 36 45 62 66 75 79]} \newline
+\section{3}
+\subsection{a}
+$T(n)=4*T(\frac{n}{3})+n$\\
+\textbf{$N \sum_{i=0}^{\log_{3} n} (\frac{4}{3}) i$}
+\subsection{b}
+	$T(n)=4T(n/3)+n^2$\\
+	$ =n^{2}+4(4T(n/9)+n^{2}/9)$\\
+	$ =2n^{2}+16T(n/9)$\\
+	$ =k*n^{2}+4^{k}*T(\frac{n}{3^{k}})$\\
+$k=\log_{2} n$\newline
+\textbf{$T(n)=O(n^{2}log (n))$}\newline
+\subsection{c}
+$T(n)=9T(n/3)+n^2$\newline
+$a=9$, $b=3$, $k=2$, $P=0$\newline
+$9<3^{2}$\newline
+$T(n)=\Theta(n^{k} * \log (n)^{p})$\newline
+$T(n)=\Theta(n^{2} * \log (n)^{0})$\newline
+\textbf{$T(n)=\Theta(n^{2})$}
+\newpage
+\section{4}
+Using the master theorem:\newline
+\subsection{a}
+$T(n/2)+1$\\
+$a=1$, $b=2$, $f(n)=1$\\
+$c=log_2 (1) = 0$\\
+Case 2, $1 = n^0$\\
+\textbf{By definition, the equation is bounded by $O(\log(n))$ and $\Omega(\log(n))$}
+\subsection{b}
+$2T(n/2)+log(n)$\\
+$a=2$, $b=2$, $f(n)=log(n)$\\
+$c=log_2 (2) = 1$\\
+Case 2, $log (n) = log (n)$\\
+\textbf{By definition, the equation is bounded by $O(\log{}^{2}n)$ and $\Omega(\log{}^{2}n)$}\\
+\subsection{c}
+$2T(n/2)+n$\\
+$a=2$, $b=2$, $f(n)=n$\\
+$c=log_2 (2) = 1$\\
+Case 2, $n^1 = n^1$\\
+\textbf{By definition, the equation is bounded by $O(n\log{}n)$ and $\Omega(n\log{}n)$.}\\
+\subsection{d}
+$2T(n/2)+n^2$\\
+$a=2$, $b=2$, $f(n)=n^2$\\
+$c=log_2 (2) = 1$\\
+Case 3, $n^2 = n^{1+\epsilon}$\\
+\textbf{By definition, the equation is bounded by $O(n^{2})$ and $\Omega(n^{2})$.}\\
+\end{document}
